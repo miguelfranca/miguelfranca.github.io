@@ -1,0 +1,19 @@
+need to add :
+	in head:
+		<link rel="stylesheet" media="screen" href="particles/css/style.css" />
+		
+	in body:
+		<div class="body-particles">
+    		<div id="wrapper">
+    			#full page here
+    		</div>
+    	</div>
+
+
+    	# after their scripts 
+	    <div id="particles-js"></div>
+	    <script src="particles/particles.js"></script> 
+	    <script src="particles/app.js"></script>
+	    <script src="einm2imeim392me82em28s82s.js"></script> 
+
+    for mouse clicks add class="mouseEvents" on elements
