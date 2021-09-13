@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+  <script type="text/javascript" src="fourier_series.js"></script>
+  <title></title>
+  <style>
+  	.center {
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); /* for IE 9 */
+  -webkit-transform: translate(-50%, -50%); /* for Safari */
+
+  /* optional size in px or %: */
+  width: 300px;
+  height: 100px;
+}
+  </style>
+</head>
+<body>
+    <canvas id="canvas" style="position:absolute;top:15%;left:5%;border:2px solid;"></canvas>
+    <canvas id="fourier_canvas" style="position:absolute;top:15%;left:52.5%;border:2px solid;"></canvas>
+    <label style="position:absolute;top:67%;left:23.75%;">Draw here</label>
+    <input type="button" value="clear" id="clr" size="23" style="position:absolute;top:10%;left:5%;" onclick="erase_canvas()"/>
+  <div class="center">
+	<h1 style="text-align:center;"> Fourier series </h1>
+  	<h1></h1>
+    <label >Mode:</label>
+    <input type="range" min="1" max="200" value="30" step="1" class="slider" id="modeSlider" oninput="select_mode();" style="width:50%" />
+    <input type="button" value="+" id="plus" onclick="select_mode_add(1)"/>
+    <input type="button" value="-" id="minus" onclick="select_mode_add(-1)"/>
+    <label id="max_modes" ></label>
+  </div>
+</body>
+</html>

@@ -334,12 +334,11 @@ function findxy(mouse, e)
 {
     if (mouse == 'down')
     {
-        currX = e.pageX - canvas.offsetLeft;
-        currY = e.pageY - canvas.offsetTop;
+        currX = e.clientX - canvas.offsetLeft;
+        currY = e.clientY - canvas.offsetTop;
 
         points = [];
         points.push(ComplexNumber.fromCartesian(currX, currY));
-
 
         drawing = true;
         drawing_fourier = false;
@@ -364,11 +363,10 @@ function findxy(mouse, e)
     {
         prevX = currX;
         prevY = currY;
-        currX = e.pageX - canvas.offsetLeft;
-        currY = e.pageY - canvas.offsetTop;
+        currX = e.clientX - canvas.offsetLeft;
+        currY = e.clientY - canvas.offsetTop;
 
         points.push(ComplexNumber.fromCartesian(currX, currY));
-        console.log(e)
 
         draw(ctx);
     }
