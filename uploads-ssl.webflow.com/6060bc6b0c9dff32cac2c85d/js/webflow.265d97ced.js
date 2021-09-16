@@ -66364,7 +66364,8 @@
             login: 'data-wf-user-login',
             formError: 'data-wf-user-form-error',
             redirectUrl: 'data-wf-user-form-redirect',
-            formVerification: 'data-wf-user-form-verification'
+            formVerification: 'data-wf-user-form-verification',
+            subscriptionCancel: 'data-wf-user-subscription-cancel'
         };
         exports.USYS_DATA_ATTRS = USYS_DATA_ATTRS;
         var USYS_DOM_CLASS_NAMES = {
@@ -81062,7 +81063,9 @@ Webflow.require('ix2').init({
                             "delay": 0,
                             "easing": "",
                             "duration": 500,
-                            "target": {},
+                            "target": {
+                                "id": "613baf4136aa8c908a65b57a|2cae09d6-a037-8457-94c2-0475e65b6412"
+                            },
                             "xValue": 1,
                             "yValue": 1,
                             "locked": true
@@ -81077,7 +81080,9 @@ Webflow.require('ix2').init({
                             "delay": 0,
                             "easing": "",
                             "duration": 500,
-                            "target": {},
+                            "target": {
+                                "id": "613baf4136aa8c908a65b57a|2cae09d6-a037-8457-94c2-0475e65b6412"
+                            },
                             "xValue": 0.8,
                             "yValue": 0.8,
                             "locked": true

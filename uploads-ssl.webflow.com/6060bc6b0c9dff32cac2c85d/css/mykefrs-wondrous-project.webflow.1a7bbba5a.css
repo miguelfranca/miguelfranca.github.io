@@ -1,4 +1,4 @@
-/* Generated on: Mon Sep 13 2021 23:10:06 GMT+0000 (Coordinated Universal Time) */
+/* Generated on: Thu Sep 16 2021 18:40:07 GMT+0000 (Coordinated Universal Time) */
 
 /* ==========================================================================
    normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css 
@@ -7247,13 +7247,13 @@ figcaption {
     grid-template-rows: auto auto;
 }
 
-.text-block {
+.text-block-project {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     overflow: visible;
-    width: auto;
+    width: 100%;
     height: auto;
     margin-top: 0px;
     margin-bottom: 0px;
@@ -7327,10 +7327,10 @@ figcaption {
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: stretch;
-    -webkit-align-items: stretch;
-    -ms-flex-align: stretch;
-    align-items: stretch;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .section-2 {
@@ -7397,29 +7397,31 @@ figcaption {
 }
 
 .button-2.fourierseires {
-    width: 60vh;
+    width: 100%;
     margin-top: 0px;
-    padding: 139px 0px;
+    padding: 112px 0px;
     background-position: 50% 50%;
-    background-size: 590px;
+    background-size: 110%;
     background-attachment: scroll;
     -webkit-transition: all 500ms ease;
     transition: all 500ms ease;
     font-family: Ubuntu, Helvetica, sans-serif;
-    font-size: 53px;
-    line-height: 50px;
+    font-size: 320%;
+    line-height: 3rem;
     font-weight: 700;
     background-clip: border-box;
     -webkit-text-fill-color: inherit;
+    -o-object-fit: fill;
+    object-fit: fill;
 }
 
 .button-2.fourierseires:hover {
-    padding-top: 139px;
-    padding-bottom: 139px;
+    padding-top: 112px;
+    padding-bottom: 112px;
     border-radius: 0px;
     background-image: url("https://uploads-ssl.webflow.com/6060bc6b0c9dff32cac2c85d/613e37bbd23ae15c1cce4a96_maxresdefault.jpg");
     background-position: 50% 50%;
-    background-size: 570px;
+    background-size: 640px;
     background-attachment: scroll;
     opacity: 1;
     font-size: 64px;
@@ -7429,12 +7431,12 @@ figcaption {
 }
 
 .button-2.polebalncing {
-    width: 60vh;
+    width: 100%;
     margin-top: 0px;
-    padding: 139px 0px;
+    padding: 112px 0px;
     background-image: url("https://uploads-ssl.webflow.com/6060bc6b0c9dff32cac2c85d/613e47c7f40b1c078df199d5_Screenshot%20from%202021-09-12%2019-32-18.png");
     background-position: 50% 50%;
-    background-size: 550px;
+    background-size: 100%;
     background-attachment: scroll;
     -webkit-transition: all 500ms ease;
     transition: all 500ms ease;
@@ -7447,12 +7449,12 @@ figcaption {
 }
 
 .button-2.polebalncing:hover {
-    padding-top: 139px;
-    padding-bottom: 139px;
+    padding-top: 112px;
+    padding-bottom: 112px;
     border-radius: 0px;
     background-image: url("https://uploads-ssl.webflow.com/6060bc6b0c9dff32cac2c85d/613e47c7f40b1c078df199d5_Screenshot%20from%202021-09-12%2019-32-18.png");
     background-position: 50% 50%;
-    background-size: 530px;
+    background-size: 90%;
     background-attachment: scroll;
     opacity: 1;
     font-size: 64px;
@@ -7649,6 +7651,7 @@ figcaption {
     position: -webkit-sticky;
     position: sticky;
     top: 20px;
+    width: 100vw;
     text-align: left;
 }
 
@@ -7734,7 +7737,8 @@ figcaption {
 }
 
 .c-cloneable {
-    width: 100%;
+    display: block;
+    width: 100vw;
     max-width: 1300px;
     margin-right: auto;
     margin-left: auto;
@@ -7766,15 +7770,86 @@ figcaption {
     text-align: left;
 }
 
+.text-block {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: visible;
+    width: 100%;
+    height: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+    border-radius: 20px;
+    opacity: 1;
+    font-family: Ubuntu, Helvetica, sans-serif;
+    color: #fff;
+    font-size: 53px;
+    line-height: 44px;
+    font-weight: 600;
+    text-align: center;
+    -o-object-fit: fill;
+    object-fit: fill;
+}
+
 @media screen and (min-width: 1280px) {
     .container {
         margin-top: 22%;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+    .text-block-project {
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+    .text-block {
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
     }
 }
 
 @media screen and (min-width: 1440px) {
     .container {
         margin-top: 20%;
+    }
+    .container-2 {
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
     }
 }
 
@@ -7786,7 +7861,7 @@ figcaption {
     .container {
         margin-top: 19%;
     }
-    .text-block {
+    .text-block-project {
         margin-top: 0px;
         margin-bottom: 0px;
         -webkit-box-align: start;
@@ -7865,6 +7940,14 @@ figcaption {
         border: 1px none #000;
         border-radius: 20px;
         background-color: #1375a7;
+    }
+    .text-block {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        -webkit-box-align: start;
+        -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+        align-items: flex-start;
     }
 }
 
@@ -8610,6 +8693,9 @@ figcaption {
     .container {
         margin-top: 33%;
     }
+    .button-2.fourierseires {
+        background-size: 110%;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -9166,6 +9252,31 @@ figcaption {
     .container {
         margin-top: 46%;
     }
+    .button-2.fourierseires {
+        padding-top: 90px;
+        padding-bottom: 90px;
+        font-size: 320%;
+        line-height: 3rem;
+    }
+    .button-2.fourierseires:hover {
+        padding-top: 90px;
+        padding-bottom: 90px;
+        background-size: 100%;
+    }
+    .button-2.polebalncing {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+    .button-2.polebalncing:hover {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+    .c-card._1 {
+        width: 100%;
+    }
+    .c-cloneable {
+        width: 100vw;
+    }
 }
 
 @media screen and (max-width: 479px) {
@@ -9611,7 +9722,7 @@ figcaption {
         -ms-flex-line-pack: start;
         align-content: flex-start;
     }
-    .text-block {
+    .text-block-project {
         overflow: visible;
         height: auto;
         -webkit-box-pack: center;
@@ -9632,11 +9743,14 @@ figcaption {
         padding-top: 211px;
     }
     .button-2.fourierseires {
-        display: inline-block;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
         width: auto;
         margin-bottom: 0px;
-        padding-top: 33px;
-        padding-bottom: 33px;
+        padding-top: 36px;
+        padding-bottom: 36px;
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -webkit-flex-direction: row;
@@ -9650,31 +9764,43 @@ figcaption {
         -webkit-align-items: flex-start;
         -ms-flex-align: start;
         align-items: flex-start;
-        background-size: 300px;
-        line-height: 61px;
+        background-size: 35vh;
+        font-size: 38px;
+        line-height: 44px;
         text-align: center;
         text-decoration: none;
     }
     .button-2.fourierseires:hover {
-        padding-top: 33px;
-        padding-bottom: 33px;
-        font-size: 64px;
-        line-height: 61px;
+        padding-top: 36px;
+        padding-bottom: 36px;
+        background-size: 310px;
+        font-size: 44px;
+        line-height: 44px;
         text-indent: 0px;
         -webkit-column-count: 0;
         column-count: 0;
     }
     .button-2.polebalncing {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
         width: auto;
-        padding-top: 33px;
-        padding-bottom: 33px;
+        padding-top: 36px;
+        padding-bottom: 36px;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
         background-size: 300px;
-        line-height: 61px;
+        font-size: 36px;
+        line-height: 44px;
     }
     .button-2.polebalncing:hover {
-        padding-top: 33px;
-        padding-bottom: 33px;
-        font-size: 62px;
+        padding-top: 36px;
+        padding-bottom: 36px;
+        background-size: 290px;
+        font-size: 44px;
     }
     .text-block-smaller {
         overflow: visible;
@@ -9713,6 +9839,7 @@ figcaption {
     }
     .c-card._1 {
         height: 30vh;
+        margin-bottom: 100px;
     }
     .c-card._5 {
         top: 260px;
@@ -9760,6 +9887,24 @@ figcaption {
     }
     .project-div-block {
         width: 33vh;
+        margin-bottom: 100px;
+    }
+    .text-block {
+        overflow: visible;
+        height: auto;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        direction: ltr;
+        font-size: 40px;
+        line-height: 44px;
+        text-align: center;
+        letter-spacing: 0px;
+        text-transform: none;
+        white-space: normal;
+        -o-object-fit: fill;
+        object-fit: fill;
     }
 }
 
