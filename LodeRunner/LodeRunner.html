@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lode Runner</title>
+  <script type="text/javascript" src="LodeRunner0.js"></script>
+  <script type="text/javascript" src="LodeRunner.js"></script>
+
+  <style>
+  	#Menu {
+  		position: relative;
+  		display: flex;
+  		align-items: center;
+  		justify-content: center;
+  	}
+
+  	#canvas1 {
+		border: 1px solid #000000;
+  	}
+
+  	#startBtn, #optionsBtn, #backBtn, #nextLevelBtn,
+    #prevLevelBtn, #reloadLevelBtn, #restartLvlBtn, #restartGameBtn, #mainMenuBtn, #sliderSize {
+  		position: absolute;
+  		top: 40%;
+  		width: 10%;
+  		height: 10%;
+  		font-size: 20px;
+      display: none;
+  	}
+
+  	#optionsBtn {
+  		top: 50%;
+  	}
+
+
+    #restartGameBtn {
+      top: 50%;
+    }
+
+    #mainMenuBtn {
+      top: 60%;
+    }
+
+    #prevLevelBtn {
+      top: 50%;
+    }
+
+    #reloadLevelBtn {
+      top: 60%;
+    }
+
+    #sliderSize {
+      top: 60%;
+    }
+
+  </style>
+
+</head>
+<body onload="onLoad()">
+  <form name="form1" id="form1">
+	<div id='Menu'>
+      <canvas id="canvas1">Your browser doesn't support the HTML5 CANVAS tag. </canvas>
+      <input type="range"   id="sliderSize" min="1" max="100" value="50" class="slidecontainer">
+  	  <button type="button" id="startBtn">START</button>
+   	  <button type="button" id="optionsBtn">OPTIONS</button>
+      <button type="button" id="backBtn">BACK</button>
+      <button type="button" id="restartLvlBtn">RESTART LEVEL</button>
+      <button type="button" id="restartGameBtn">RESTART GAME</button>
+  	  <button type="button" id="mainMenuBtn">MAIN MENU</button>
+
+    	<p>
+    		<button type="button" id="nextLevelBtn">NEXT LEVEL</button>
+        <button type="button" id="prevLevelBtn">PREVIOUS LEVEL</button>
+        <button type="button" id="reloadLevelBtn">RELOAD LEVEL</button>
+      </p>
+
+    </div>
+  </form>
+</body>
+</html>

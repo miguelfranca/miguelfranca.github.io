@@ -204,14 +204,15 @@ function drawFourier(time)
 
 function resize()
 {
-    canvas.width = window.innerWidth * 0.425;
-    canvas.height = window.innerHeight * 0.5;
+    canvas.width = document.getElementById('CanvasDiv1').offsetWidth;
+    canvas.height = document.getElementById('CanvasDiv2').offsetHeight;
 
     fourier_canvas.width = canvas.width;
     fourier_canvas.height = canvas.height;
+
 }
 
-window.onresize = resize;
+// window.onresize = resize;
 
 window.onload = function init()
 {
@@ -268,8 +269,6 @@ function drawCircle(cx, cy, r, context)
 
 function drawLine(p1x, p1y, p2x, p2y, context)
 {
-
-    // draw a red line
     context.beginPath();
     context.moveTo(p1x, p1y);
     context.lineTo(p2x, p2y);
