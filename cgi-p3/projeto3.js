@@ -503,7 +503,7 @@ window.onresize = function ()
 function fit_canvas_to_window()
 {
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight * 2 / 3;
+    canvas.height = window.innerHeight * 0.60;
 
     aspect = canvas.width / canvas.height;
     gl.viewport(0, 0, canvas.width, canvas.height);
