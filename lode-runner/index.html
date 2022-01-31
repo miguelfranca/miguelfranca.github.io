@@ -5,7 +5,7 @@
   <title>Lode Runner</title>
   <script type="text/javascript" src="LodeRunner0.js"></script>
   <script type="text/javascript" src="LodeRunner.js"></script>
-
+  <link href="https://uploads-ssl.webflow.com/6161959391c49406025937e1/css/mykefrs-radical-project.webflow.704d12757.css" rel="stylesheet" type="text/css">
   <style>
   	#Menu {
   		position: relative;
@@ -15,7 +15,8 @@
   	}
 
   	#canvas1 {
-		border: 1px solid #000000;
+		  border: 1px solid #000000;
+      background-color:  white;
   	}
 
   	#startBtn, #optionsBtn, #backBtn, #nextLevelBtn,
@@ -26,6 +27,7 @@
   		height: 10%;
   		font-size: 20px;
       display: none;
+      background-color: grey;
   	}
 
   	#optionsBtn {
@@ -56,25 +58,32 @@
   </style>
 
 </head>
-<body onload="onLoad()">
-  <form name="form1" id="form1">
-	<div id='Menu'>
-      <canvas id="canvas1">Your browser doesn't support the HTML5 CANVAS tag. </canvas>
-      <input type="range"   id="sliderSize" min="1" max="100" value="50" class="slidecontainer">
-  	  <button type="button" id="startBtn">START</button>
-   	  <button type="button" id="optionsBtn">OPTIONS</button>
-      <button type="button" id="backBtn">BACK</button>
-      <button type="button" id="restartLvlBtn">RESTART LEVEL</button>
-      <button type="button" id="restartGameBtn">RESTART GAME</button>
-  	  <button type="button" id="mainMenuBtn">MAIN MENU</button>
+<body class="body-3" onload="onLoad()">
+  <div class="div-block-15">
+    <form name="form1" id="form1">
+  	   <div id='Menu'>
+        <canvas id="canvas1">Your browser doesn't support the HTML5 CANVAS tag. </canvas>
+        <input type="range" id="sliderSize" min="1" max="65" value="50" class="slidecontainer">
+    	  <button type="button" id="startBtn">START</button>
+     	  <button type="button" id="optionsBtn">OPTIONS</button>
+        <button type="button" id="backBtn">BACK</button>
+        <button type="button" id="restartLvlBtn">RESTART LEVEL</button>
+        <button type="button" id="restartGameBtn">RESTART GAME</button>
+    	  <button type="button" id="mainMenuBtn">MAIN MENU</button>
 
-    	<p>
-    		<button type="button" id="nextLevelBtn">NEXT LEVEL</button>
-        <button type="button" id="prevLevelBtn">PREVIOUS LEVEL</button>
-        <button type="button" id="reloadLevelBtn">RELOAD LEVEL</button>
-      </p>
-
-    </div>
-  </form>
+      	<p>
+      		<button type="button" id="nextLevelBtn">NEXT LEVEL</button>
+          <button type="button" id="prevLevelBtn">PREVIOUS LEVEL</button>
+          <button type="button" id="reloadLevelBtn">RELOAD LEVEL</button>
+        </p>
+      </div>
+    </form>
+  </div>
+  <div class="div-block-16">
+    <div class="div-block-25">
+        <div>Break</div><img src="https://uploads-ssl.webflow.com/6161959391c49406025937e1/6179674fa345b2ea446a3e8e_computer_key_Space_bar.png" loading="lazy" width="300" alt="" /></div>
+    <div class="div-block-24">
+        <div>Move</div><img src="https://uploads-ssl.webflow.com/6161959391c49406025937e1/617967371a53e83d61f3c4f0_arrowKeys-300x205.png" loading="lazy" width="200" alt="" class="image-5" /></div>
+  </div>
 </body>
 </html>
