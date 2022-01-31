@@ -57,10 +57,10 @@ class GameImages
     }
     static loadAll(next)
     {
-        GameImages.prefix =
-            "http://ctp.di.fct.unl.pt/miei/lap/projs/proj2020-3/files/images/"
-            // GameImages.prefix = "images/"		// allows offline working
-            GameImages.next = next; // next is the action to start after loading
+        //GameImages.prefix =
+          //  "http://ctp.di.fct.unl.pt/miei/lap/projs/proj2020-3/files/images/"
+        GameImages.prefix = "./images/"
+        GameImages.next = next; // next is the action to start after loading
         GameImages.loading = 0;
         GameImages.loadOne("brick");
         GameImages.loadOne("chimney");
