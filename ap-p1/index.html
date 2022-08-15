@@ -93,7 +93,7 @@
                 <div class="text-block-24 newlinetext24">2.1 Multiclass classification:</div>
                 <section id="multiclass" class="div-block-80"></section>
             </div>
-            <div class="text-block-24 texttab newlinetab">For this problem I used the following network architecture (written in python):</div>
+            <div class="text-block-24 texttab newlinetab">For this problem I used the following network architecture:</div>
             <div class="text-block-24 texttab newlinetab code"><span class="comment">&quot;&quot;&quot; Model Architecture &quot;&quot;&quot;</span><br/>‍<span class="function">Input</span>(<span class="parameter">shape</span><span class="equalsign">=</span>(<span class="parameter">64</span>,<span class="parameter">64</span>,
                 <span
                     class="parameter">3</span>),<span class="parameter"> name</span><span class="equalsign">=</span><span class="string">&#x27;inputs&#x27;</span>)<br/><br/>‍<span class="function">Conv2D</span>(<span class="parameter">32</span>,<span class="parameter"> </span>(
@@ -128,7 +128,7 @@
                                                                             <span
                                                                                 class="parameter">10</span>)<br/><span class="function">Activation</span>(<span class="string">&#x27;softmax&#x27;</span>)<br/></div>
             <div class="text-block-24 texttab newlinetab">For the first few convolutions I used <strong>convolutional</strong> layers with 32 filters and a (4,4) kernel with same padding to not change the first 2 dimensions of 64x64 of the images, 32 filters since it was enough to capture the first
-                most &quot;general&quot; patterns of the pictures.<br/>They all use <strong>ReLU</strong> activation because they are hidden layers thus preventing gradients from vanishing in the case the weight values becoming too large while also being
+                most &quot;general&quot; patterns of the pictures.<br/>They all use <strong>ReLU</strong> activation because they are hidden layers thus preventing gradients from vanishing in case the weight values become too large while also being
                 fast to compute and applying a non-linearity to the output tensor.<br/>This is always followed by a <strong>BatchNormalization</strong> layer to standardize the output and facilitate the learning of the next layers.<br/><strong>MaxPooling2D</strong>                of pool_size 2x2 and 4x4 to lower the tensor&#x27;s first 2 dimensions from 64x64 down to 4x4.<br/><br/>I then use a <strong>Flatten</strong> layer to collapse the tensor into a single dimension with size 1024 enabling it to be an input
                 to a <strong>dense</strong> layer of 32 neurons preceded by a <strong>Dropout</strong> layer with probability of 60% to have some regularization effect which helps to prevent overfitting. Overfitting is a concern especially in this dataset
                 since we have a limited dataset of only 4000 samples. The dense layer has 32 neurons because the results showed this amount was enough for the network to interpret the last feature map produced by the convolutional layers.<br/>Yet again
