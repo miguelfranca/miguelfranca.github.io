@@ -1,7 +1,7 @@
 var s = function( sketch ) {
     const numRings = 3
-    const width = 300
-    const height = 300
+    const width = 780
+    const height = 800
 
     sketch.setup = function() {
     let cnv = sketch.createCanvas(width, height);
