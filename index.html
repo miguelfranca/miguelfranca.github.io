@@ -11,6 +11,413 @@
     <link href="https://assets-global.website-files.com/6161959391c49406025937e1/css/mykefrs-radical-project.webflow.4173237bb.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
     <link rel="stylesheet" media="screen" href="particles/css/style.css" />
+    <style>
+        /* Custom Skills Section Styles */
+        .custom-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .custom-skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 15px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            pointer-events: all;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .custom-skill-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .custom-skill-icon {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            will-change: transform;
+        }
+
+        .bash-icon-light {
+            filter: invert(1) brightness(1.2);
+        }
+
+        .c-icon-blue {
+            filter: brightness(0) saturate(100%) invert(27%) sepia(100%) saturate(3000%) hue-rotate(200deg) brightness(0.9);
+        }
+
+        /* Experience Section Styles - Professional Timeline */
+        .experience-container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 30px;
+            position: relative;
+        }
+
+        .experience-timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #4A90E2 0%, #7B68EE 50%, #FF462D 100%);
+            border-radius: 2px;
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 50px;
+            padding: 0;
+            background: transparent;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -42px;
+            top: 10px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #4A90E2;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.3), 0 4px 12px rgba(74, 144, 226, 0.5);
+            z-index: 2;
+        }
+
+        .experience-item:first-child::before {
+            background: #FF462D;
+            box-shadow: 0 0 0 4px rgba(255, 70, 45, 0.3), 0 4px 12px rgba(255, 70, 45, 0.5);
+        }
+
+        .experience-card {
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.15) 0%, rgba(123, 104, 238, 0.1) 100%);
+            border: 1px solid rgba(74, 144, 226, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #4A90E2 0%, #7B68EE 100%);
+        }
+
+
+
+        .experience-header {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .experience-title-wrapper {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .experience-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.5px;
+        }
+
+        .experience-company {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #FF462D;
+            display: inline-block;
+        }
+
+        .experience-date-location {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 8px;
+        }
+
+        .experience-date {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #4A90E2;
+            background: rgba(74, 144, 226, 0.15);
+            padding: 10px 18px;
+            border-radius: 8px;
+            border: 2px solid rgba(74, 144, 226, 0.4);
+            white-space: nowrap;
+        }
+
+
+        .experience-location {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+        }
+
+        .experience-description {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 20px;
+        }
+
+        .experience-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .experience-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+        }
+
+
+        .experience-list li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #4A90E2;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+
+        @media (max-width: 768px) {
+            .experience-container {
+                padding: 0 20px;
+                margin: 40px auto;
+            }
+
+            .experience-timeline {
+                padding-left: 35px;
+            }
+
+            .experience-timeline::before {
+                left: 10px;
+                width: 2px;
+            }
+
+            .experience-item::before {
+                left: -27px;
+                width: 12px;
+                height: 12px;
+                border-width: 3px;
+            }
+
+            .experience-card {
+                padding: 20px;
+            }
+
+            .experience-title {
+                font-size: 1.4rem;
+            }
+
+            .experience-company {
+                font-size: 1.1rem;
+            }
+
+            .experience-date-location {
+                align-items: flex-start;
+                gap: 6px;
+            }
+
+            .experience-date {
+                font-size: 1rem;
+                padding: 8px 14px;
+            }
+
+            .experience-location {
+                font-size: 0.85rem;
+            }
+
+            .experience-description {
+                font-size: 0.95rem;
+            }
+
+            .experience-list li {
+                padding-left: 25px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .custom-skill-item:hover .custom-skill-icon {
+            transform: scale(1.3) rotate(5deg);
+        }
+
+        .custom-skill-item:hover .custom-skill-icon-wrapper {
+            transform: translateY(-10px) scale(1.05);
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+        }
+
+        .custom-skill-item:active .custom-skill-icon {
+            transform: scale(1.2) rotate(0deg);
+        }
+
+        .custom-skill-item:active .custom-skill-icon-wrapper {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .custom-skill-name {
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+            color: inherit;
+            margin-top: 5px;
+            transition: all 0.3s ease;
+            word-break: break-word;
+        }
+
+        .custom-skill-item:hover .custom-skill-name {
+            transform: translateY(-2px);
+            font-weight: 600;
+        }
+
+        /* Mobile and Tablet Responsive */
+        @media (max-width: 1024px) {
+            .custom-skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 25px;
+                padding: 35px 15px;
+            }
+
+            .custom-skill-icon-wrapper {
+                width: 70px;
+                height: 70px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .custom-skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 20px;
+                padding: 30px 15px;
+            }
+
+            .custom-skill-icon-wrapper {
+                width: 60px;
+                height: 60px;
+            }
+
+            .custom-skill-item {
+                padding: 15px 10px;
+            }
+
+            .custom-skill-name {
+                font-size: 12px;
+            }
+
+            .custom-skill-item:hover .custom-skill-icon {
+                transform: scale(1.25) rotate(3deg);
+            }
+
+            .custom-skill-item:hover .custom-skill-icon-wrapper {
+                transform: translateY(-8px) scale(1.03);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .custom-skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 15px;
+                padding: 25px 10px;
+            }
+
+            .custom-skill-icon-wrapper {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 10px;
+            }
+
+            .custom-skill-item {
+                padding: 12px 8px;
+            }
+
+            .custom-skill-name {
+                font-size: 11px;
+            }
+
+            .custom-skill-item:hover .custom-skill-icon {
+                transform: scale(1.2) rotate(2deg);
+            }
+
+            .custom-skill-item:hover .custom-skill-icon-wrapper {
+                transform: translateY(-6px) scale(1.02);
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .custom-skill-item:active .custom-skill-icon {
+                transform: scale(1.2) rotate(0deg);
+            }
+
+            .custom-skill-item:active .custom-skill-icon-wrapper {
+                transform: translateY(-5px) scale(1.02);
+                filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+            }
+        }
+
+        /* Ensure proper viewport scaling */
+        @media (max-width: 320px) {
+            .custom-skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+                gap: 12px;
+            }
+
+            .custom-skill-icon-wrapper {
+                width: 45px;
+                height: 45px;
+            }
+
+            .custom-skill-name {
+                font-size: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body class="body">
@@ -27,6 +434,8 @@
                             <div class="div-block-31-copy-copy"></div><a href="#skills" class="nav-button w-button">Skills</a></div>    
                         <div class="div-block-32 mouseEvents">  
                             <div class="div-block-31-copy-copy-copy-2"></div><a href="#education" class="nav-button w-button">Education</a></div>   
+                        <div class="div-block-34 mouseEvents">  
+                            <div class="div-block-31 _3"></div><a href="#experience" class="nav-button w-button">Experience</a></div>   
                         <div class="div-block-34 mouseEvents">  
                             <div class="div-block-31 _3"></div><a href="#badges" class="nav-button w-button">Badges</a></div>   
                         <div class="div-block-34 mouseEvents">  
@@ -48,6 +457,8 @@
                     <div class="div-block-31 _1"></div><a href="#skills" class="nav-button w-button">Skills</a></div>   
                 <div class="div-block-34  mouseEvents">  
                     <div class="div-block-31 _2"></div><a href="#education" class="nav-button w-button">Education</a></div> 
+                <div class="div-block-34  mouseEvents">  
+                    <div class="div-block-31 _3"></div><a href="#experience" class="nav-button w-button">Experience</a></div>   
                 <div class="div-block-34  mouseEvents">  
                     <div class="div-block-31 _3"></div><a href="#badges" class="nav-button w-button">Badges</a></div>   
                 <div class="div-block-34  mouseEvents">  
@@ -182,66 +593,144 @@
     <div class="div-block-5">
         <section id="skills" class="section-6 wf-section">
             <h1 class="heading"  style="font-size:2rem;">My <span class="text-span-9">Skills</span></h1>
-            <div class="w-layout-grid grid mouseEvents">
-                <div id="w-node-d1f87e64-2066-758d-e070-20e2db0cffae-f65937e6" class="div-block-42">
-                    <div class="div-block-43"></div>
-                    <div class="text-block-12">Linux</div>
+            <div class="custom-skills-grid mouseEvents">
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">Python</div>
                 </div>
-                <div id="w-node-c1c7add0-26bd-8dc6-ffbc-bfa14f5fc0d0-f65937e6" class="div-block-42">
-                    <div class="div-block-43 _1"></div>
-                    <div class="text-block-12">GitHub</div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">Java</div>
                 </div>
-                <div id="w-node-_2a688532-2e13-24b8-22ef-97bb0df8bcb9-f65937e6" class="div-block-42">
-                    <div class="div-block-43 _2"></div>
-                    <div class="text-block-12">Java</div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">C++</div>
                 </div>
-                <div id="w-node-_780e4e87-4cfd-2c36-0005-b3b9098c3ec3-f65937e6" class="div-block-42">
-                    <div class="div-block-43 _3"></div>
-                    <div class="text-block-12">C++</div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">JavaScript</div>
                 </div>
-                <div id="w-node-bb375a61-e31e-d5a7-912a-fd75594d2e6b-f65937e6" class="div-block-42">
-                    <div class="div-block-43 _4"></div>
-                    <div class="text-block-12">C</div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">TypeScript</div>
                 </div>
-                <div id="w-node-a4556f3d-4694-5071-4543-dd2cad81c11c-f65937e6" class="div-block-42">
-                    <div class="div-block-43 _5"></div>
-                    <div class="text-block-12">Javascript</div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" class="custom-skill-icon c-icon-blue" />
+                    </div>
+                    <div class="custom-skill-name">C</div>
                 </div>
-                <div id="w-node-_7b0ba001-cab7-9130-4762-57fbfaa41e85-f65937e6" class="div-block-42">
-                    <div class="div-block-43 _6"></div>
-                    <div class="text-block-12">Python</div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">Google Cloud</div>
                 </div>
-                <div id="w-node-_5e0f968e-c1c3-6490-5ea1-f73bd800788e-f65937e6" class="div-block-42">
-                    <div class="div-block-43 _7"></div>
-                    <div class="text-block-12">Google Cloud</div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">Azure</div>
                 </div>
-                <div id="w-node-bba88f96-1ba1-ebef-9db0-a2a03c246992-f65937e6" class="div-block-42">
-                    <div class="div-block-43 _8"></div>
-                    <div class="text-block-12">Azure</div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">Docker</div>
                 </div>
-                <div id="w-node-cb2bc461-8d73-72f3-e366-031f2b873653-f65937e6" class="div-block-42">
-                    <div class="div-block-43 _9"></div>
-                    <div class="text-block-12">Unity</div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">Kubernetes</div>
                 </div>
-                <div id="w-node-b5fe7b0c-bd69-8bd5-07d8-26c72e808e9e-f65937e6" class="div-block-42">
-                    <div class="div-block-43 _10"></div>
-                    <div class="text-block-12">Qt</div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">Git</div>
                 </div>
-                <div id="w-node-_68d64b1e-0f4e-c708-9574-4a98316c86be-f65937e6" class="div-block-42">
-                    <div class="div-block-43 _11"></div>
-                    <div class="text-block-12">CSS</div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">Linux</div>
                 </div>
-                <div id="w-node-eab9b73f-29c0-389e-3814-e06acc693952-f65937e6" class="div-block-42">
-                    <div class="div-block-43 _12"></div>
-                    <div class="text-block-12">HTML</div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="REST APIs" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">REST APIs</div>
                 </div>
-                <div id="w-node-e4a51ba9-480f-33a0-342b-46474773a03f-f65937e6" class="div-block-42">
-                    <div class="div-block-43 _13"></div>
-                    <div class="text-block-12">Android Studio</div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gnubash.svg" alt="Bash" class="custom-skill-icon bash-icon-light" />
+                    </div>
+                    <div class="custom-skill-name">Bash</div>
                 </div>
-                <div id="w-node-f14a4a31-3ca8-737c-f212-22baff885531-f65937e6" class="div-block-42">
-                    <div class="div-block-43 _14"></div>
-                    <div class="text-block-12">Kdenlive</div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">Terraform</div>
+                </div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg" alt="Ansible" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">Ansible</div>
+                </div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/yaml/yaml-original.svg" alt="YAML" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">YAML</div>
+                </div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">HTML</div>
+                </div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">CSS</div>
+                </div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="SFML" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">SFML</div>
+                </div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">Unity</div>
+                </div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/qt/qt-original.svg" alt="Qt" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">Qt</div>
+                </div>
+                <div class="custom-skill-item mouseEvents">
+                    <div class="custom-skill-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android Studio" class="custom-skill-icon" />
+                    </div>
+                    <div class="custom-skill-name">Android Studio</div>
                 </div>
             </div>
         </section>
@@ -250,6 +739,49 @@
                 <div class="div-block-44 mouseEvents"><img src="https://uploads-ssl.webflow.com/6161959391c49406025937e1/62d7f6ff4cccc7bdaf2c5af4_logo_fctunl.png" loading="lazy" alt="" />
                     <h1 class="heading-2 mouseEvents"><span class="text-span-11">2018-2023</span>NOVA School of Science and Technology (FCT NOVA) - M.Sc. Computer Science</h1>
                 </div>
+        </section>
+        <section id="experience" class="section-6 wf-section" style="font-size:2rem;">
+            <h1 class="heading">My <span class="text-span-10">Experience</span></h1>
+            <div class="experience-container mouseEvents">
+                <div class="experience-timeline">
+                    <div class="experience-item mouseEvents">
+                        <div class="experience-card">
+                            <div class="experience-header">
+                                <div class="experience-title-wrapper">
+                                    <h2 class="experience-title">Senior IT & Cloud Consultant</h2>
+                                    <h3 class="experience-company">Kyndryl</h3>
+                                </div>
+                                <div class="experience-date-location">
+                                    <div class="experience-date">03/2025 - Present</div>
+                                    <div class="experience-location">Lisbon, Portugal</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experience-item mouseEvents">
+                        <div class="experience-card">
+                            <div class="experience-header">
+                                <div class="experience-title-wrapper">
+                                    <h2 class="experience-title">IT & Cloud Consultant</h2>
+                                    <h3 class="experience-company">Kyndryl</h3>
+                                </div>
+                                <div class="experience-date-location">
+                                    <div class="experience-date">11/2023 - 03/2025</div>
+                                    <div class="experience-location">Lisbon, Portugal</div>
+                                </div>
+                            </div>
+                            <div class="experience-description">
+                                <ul class="experience-list">
+                                    <li>Worked on Multi-Cloud, Hybrid Cloud, and Private Cloud solutions</li>
+                                    <li>Designed automations with Terraform, Bash, and Python</li>
+                                    <li>Collaborated with clients on infrastructure strategies and solution architectures</li>
+                                    <li>Implemented RPA solutions using UiPath</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         <section id="badges" class="section-6 wf-section" >
             <h1 class="heading" style="font-size:2rem;">My <span class="text-span-10" style="font-size:2rem;">Badges</span></h1>
