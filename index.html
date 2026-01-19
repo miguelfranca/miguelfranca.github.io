@@ -445,6 +445,236 @@
             display: none !important;
             content: none !important;
         }
+        
+        /* Custom Badges Grid - Fully Responsive */
+        .badges-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+        
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .badge-item {
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(123, 104, 238, 0.05) 100%);
+            border: 1px solid rgba(74, 144, 226, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 300px;
+            width: 100%;
+            box-sizing: border-box;
+            cursor: pointer;
+            pointer-events: auto;
+        }
+        
+        .badge-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 12px;
+            pointer-events: none;
+        }
+        
+        .badge-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-color: rgba(74, 144, 226, 0.4);
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.15) 0%, rgba(123, 104, 238, 0.1) 100%);
+        }
+        
+        .badge-item:hover * {
+            pointer-events: auto;
+        }
+        
+        .badge-image-container {
+            position: relative;
+            width: 100%;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+        
+        .badge-image-container a {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+            cursor: pointer;
+            pointer-events: auto;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .badge-image {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .badge-item:hover .badge-image {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        .badge-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 10px 0 5px 0;
+            line-height: 1.4;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .badge-subtitle {
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0;
+            line-height: 1.4;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-subtitle a {
+            color: #64b5f6;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+            position: relative;
+            -webkit-tap-highlight-color: rgba(100, 181, 246, 0.3);
+        }
+        
+        .badge-item:hover .badge-subtitle a {
+            color: #90caf9 !important;
+            text-decoration: underline;
+            text-shadow: 0 0 8px rgba(100, 181, 246, 0.5);
+        }
+        
+        .badge-subtitle a:active,
+        .badge-subtitle a:focus {
+            color: #42a5f5 !important;
+            outline: 2px solid rgba(100, 181, 246, 0.5);
+            outline-offset: 2px;
+        }
+        
+        .badge-subtitle a:visited {
+            color: #64b5f6;
+        }
+        
+        .badge-link {
+            display: none;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .badges-grid {
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+                gap: 25px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .badges-container {
+                padding: 30px 15px;
+            }
+            
+            .badges-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 20px;
+            }
+            
+            .badge-item {
+                padding: 20px;
+            }
+            
+            .badge-image {
+                max-width: 240px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .badges-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+            }
+            
+            .badge-image {
+                max-width: 220px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .badges-container {
+                padding: 20px 10px;
+            }
+            
+            .badges-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .badge-item {
+                padding: 20px 15px;
+            }
+            
+            .badge-image {
+                max-width: 240px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .badge-image {
+                max-width: 200px;
+            }
+            
+            .badge-title {
+                font-size: 14px;
+            }
+            
+            .badge-subtitle {
+                font-size: 12px;
+            }
+        }
+        
+        /* Landscape orientation for tablets */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .badges-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 15px;
+            }
+            
+            .badge-item {
+                padding: 15px;
+            }
+            
+            .badge-image {
+                max-width: 200px;
+            }
+        }
     </style>
 </head>
 
@@ -811,53 +1041,135 @@
             </div>
         </section>
         <section id="badges" class="section-6 wf-section" >
-            <h1 class="heading" style="font-size:2rem;">My <span class="text-span-10" style="font-size:2rem;">Badges</span></h1>
-            <div class="div-block-57">
-                <div class="w-layout-grid grid-2">
-                    <div id="w-node-c5d32239-ebfb-ca8f-22b9-303f3607541a-f65937e6" data-w-id="c5d32239-ebfb-ca8f-22b9-303f3607541a" class="div-block-55 mouseEvents">
-                        <div class="div-block-68"><a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1682353" target="_blank" class="button-22 w-button"></a><img src="https://uploads-ssl.webflow.com/6161959391c49406025937e1/62daa44f2c7bd6f1a6e24ac8_Screenshot%20from%202022-07-22%2014-16-52.png"
-                                loading="lazy" alt="" class="image-18" /></div>
-                        <div class="text-block-17"><strong class="bold-text-2">Google Cloud Fundamentals: Core Infrastructure<br/></strong>Earned Jan 25, 2022</div>
-                        <div style="-webkit-transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);display:none"
-                            class="text-block-18"><span class="text-span-12"><strong class="bold-text-3">Google Cloud Fundamentals: Core Infrastructure</strong></span><br/>Google Cloud Fundamentals: Core Infrastructure introduces important concepts and terminology for working
-                            with Google Cloud. Through videos and hands-on labs, this course presents and compares many of Google Cloud&#x27;s computing and storage services, along with important resource and policy management tools.</div><a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1682353"
-                            target="_blank" class="button-18 w-button"></a><a data-w-id="ce0fa37c-cab9-dc61-7558-e0921c3ff9e2" href="#" class="button-23 w-button"></a></div>
-                    <div id="w-node-da11cbe3-2978-bb16-81e6-3f4701097801-f65937e6" data-w-id="da11cbe3-2978-bb16-81e6-3f4701097801"
-                        class="div-block-55 mouseEvents">
-                        <div class="div-block-68"><a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1695983" target="_blank" class="button-22 w-button"></a><img src="https://uploads-ssl.webflow.com/6161959391c49406025937e1/62daa44ed9559a41df92abb7_Screenshot%20from%202022-07-22%2014-16-18.png"
-                                loading="lazy" alt="" class="image-18" /></div>
-                        <div class="text-block-17"><strong class="bold-text-2">Google Cloud Big Data and Machine Learning Fundamentals<br/></strong>Earned Jan 29, 2022</div>
-                        <div style="-webkit-transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);display:none"
-                            class="text-block-18"><span class="text-span-12"><strong class="bold-text-3">Google Cloud Big Data and Machine Learning Fundamentals</strong></span><br/>This course introduces the Google Cloud big data and machine learning products and services that
-                            support the data-to-AI lifecycle. It explores the processes, challenges, and benefits of building a big data pipeline and machine learning models with Vertex AI on Google Cloud.</div><a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1695983"
-                            target="_blank" class="button-18 w-button"></a><a data-w-id="a413bbb3-b26f-61df-4d84-fb5e7c9c56e3" href="#" class="button-23 w-button"></a></div>
-                    <div id="w-node-_13ed63f6-270c-e23d-afa1-2b7df5b8f361-f65937e6" data-w-id="13ed63f6-270c-e23d-afa1-2b7df5b8f361"
-                        class="div-block-55 mouseEvents">
-                        <div class="div-block-68"><a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1702251" target="_blank" class="button-22 w-button"></a><img src="https://uploads-ssl.webflow.com/6161959391c49406025937e1/62daa44e63ff24945cc112f9_Screenshot%20from%202022-07-22%2014-15-57.png"
-                                loading="lazy" id="w-node-f687c0de-7b3a-0752-497c-be6d27f5ad71-f65937e6" alt="" class="image-18" /></div>
-                        <div class="text-block-17"><strong class="bold-text-2">Perform Foundational Data, ML, and AI Tasks in Google Cloud<br/></strong>Earned Feb 1, 2022</div>
-                        <div style="-webkit-transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);display:none"
-                            class="text-block-18"><span class="text-span-12"><strong class="bold-text-3">Perform Foundational Data, ML, and AI Tasks in Google Cloud</strong></span><br/>This course taught me the basic features for the following machine learning and AI technologies:
-                            BigQuery, Cloud Speech AI, Cloud Natural Language API, AI Platform, Dataflow, Cloud Dataprep by Trifacta, Dataproc, and Video Intelligence API.</div><a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1702251"
-                            target="_blank" class="button-18 w-button"></a><a data-w-id="0e368864-c579-eb54-57a0-f68bf7f4aa58" href="#" class="button-23 w-button"></a></div>
-                    <div id="w-node-_99c40fd3-02b5-ba82-59ba-0ab93c86b711-f65937e6" data-w-id="99c40fd3-02b5-ba82-59ba-0ab93c86b711"
-                        class="div-block-55 mouseEvents">
-                        <div class="div-block-68"><img src="https://uploads-ssl.webflow.com/6161959391c49406025937e1/62daa44ef845992d04eb6def_Screenshot%20from%202022-07-22%2014-17-03.png" loading="lazy" id="w-node-bac71643-0e63-e66f-d61d-3f6582dc95b4-f65937e6" alt="" class="image-18" /><a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1654398"
-                                target="_blank" class="button-22 w-button"></a></div>
-                        <div class="text-block-17"><strong class="bold-text-2">Create and Manage Cloud<br/>Resources<br/></strong>Earned Jan 17, 2022</div>
-                        <div style="-webkit-transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);display:none"
-                            class="text-block-18"><span class="text-span-12"><strong class="bold-text-3">Create and Manage Cloud Resources</strong></span><br/>In this course I learned how to write gcloud commands and use Cloud Shell, create and deploy virtual machines in Compute
-                            Engine, run containerized applications on Google Kubernetes Engine, and configure network and HTTP load balancers.</div><a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1654398"
-                            target="_blank" class="button-18 w-button"></a><a data-w-id="2b4f3be0-bb7f-3d1d-cb9e-ebd4e6fe0713" href="#" class="button-23 w-button"></a></div>
-                    <div id="w-node-ff13986c-ab42-3054-165d-eda46192368e-f65937e6" data-w-id="ff13986c-ab42-3054-165d-eda46192368e"
-                        class="div-block-55 mouseEvents">
-                        <div class="div-block-68"><a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1690573" target="_blank" class="button-22 w-button"></a><img src="https://uploads-ssl.webflow.com/6161959391c49406025937e1/62daa44d01505b828bc4bf61_Screenshot%20from%202022-07-22%2014-16-42.png"
-                                loading="lazy" alt="" class="image-18" /></div>
-                        <div class="text-block-17"><strong class="bold-text-2">Perform Foundational Infrastructure Tasks in Google Cloud<br/></strong>Earned Jan 27, 2022</div>
-                        <div style="-webkit-transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 274px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);display:none"
-                            class="text-block-18"><span class="text-span-12"><strong class="bold-text-3">Perform Foundational Infrastructure Tasks in Google Cloud</strong></span><br/>In this course I learned how to build and connect storage-centric cloud infrastructure using the
-                            basic capabilities of the of the following technologies: Cloud Storage, Identity and Access Management, Cloud Functions, and Pub/Sub.</div><a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1690573"
-                            target="_blank" class="button-18 w-button"></a><a data-w-id="872d909f-cd56-1c54-11cf-dfda9f97400f" href="#" class="button-23 w-button"></a></div>
+            <h1 class="heading" style="font-size:2rem;">My <span class="text-span-10" style="font-size:2rem;">Certifications</span></h1>
+            <div class="badges-container">
+                <div class="badges-grid">
+                    <!-- Credly Badge 1: HashiCorp Terraform Associate -->
+                    <div class="badge-item">
+                        <div class="badge-image-container">
+                            <a href="https://www.credly.com/badges/43e40e15-aa01-4c4f-b250-d33715e9cc1d/linked_in_profile" target="_blank">
+                                <img src="img/hashicorp-terraform-associate-badge.png" loading="lazy" alt="HashiCorp Certified: Terraform Associate" class="badge-image" />
+                            </a>
+                        </div>
+                        <div class="badge-title">HashiCorp Certified: Terraform Associate (003)</div>
+                        <div class="badge-subtitle"><a href="https://www.credly.com/badges/43e40e15-aa01-4c4f-b250-d33715e9cc1d/linked_in_profile" target="_blank">View Badge</a></div>
+                    </div>
+                    <!-- Credly Badge 2: GitHub Actions -->
+                    <div class="badge-item">
+                        <div class="badge-image-container">
+                            <a href="https://www.credly.com/badges/3e135f60-bb63-4808-87e1-8ef26255bfb5/linked_in_profile" target="_blank">
+                                <img src="img/github-actions-badge.png" loading="lazy" alt="GitHub Actions" class="badge-image" />
+                            </a>
+                        </div>
+                        <div class="badge-title">GitHub Actions</div>
+                        <div class="badge-subtitle"><a href="https://www.credly.com/badges/3e135f60-bb63-4808-87e1-8ef26255bfb5/linked_in_profile" target="_blank">View Badge</a></div>
+                    </div>
+                    <!-- Credly Badge 3: GitHub Foundations -->
+                    <div class="badge-item">
+                        <div class="badge-image-container">
+                            <a href="https://www.credly.com/badges/ef1ae60b-0d12-4de4-920a-fb2cafc5d34e/linked_in_profile" target="_blank">
+                                <img src="img/github-foundations-badge.png" loading="lazy" alt="GitHub Foundations" class="badge-image" />
+                            </a>
+                        </div>
+                        <div class="badge-title">GitHub Foundations</div>
+                        <div class="badge-subtitle"><a href="https://www.credly.com/badges/ef1ae60b-0d12-4de4-920a-fb2cafc5d34e/linked_in_profile" target="_blank">View Badge</a></div>
+                    </div>
+                    <!-- Credly Badge 5: AWS Cloud Practitioner -->
+                    <div class="badge-item">
+                        <div class="badge-image-container">
+                            <a href="https://www.credly.com/badges/055afc1b-7dc7-481b-a715-2b03fd0bac0b/linked_in_profile" target="_blank">
+                                <img src="img/aws-cloud-practitioner-badge.png" loading="lazy" alt="AWS Certified Cloud Practitioner" class="badge-image" />
+                            </a>
+                        </div>
+                        <div class="badge-title">AWS Certified Cloud Practitioner</div>
+                        <div class="badge-subtitle"><a href="https://www.credly.com/badges/055afc1b-7dc7-481b-a715-2b03fd0bac0b/linked_in_profile" target="_blank">View Badge</a></div>
+                    </div>
+                    <!-- Credly Badge 6: Couchbase -->
+                    <div class="badge-item">
+                        <div class="badge-image-container">
+                            <a href="https://www.credly.com/badges/2b04d1fc-cacf-4cda-90e9-fde5912e17e2/linked_in_profile" target="_blank">
+                                <img src="img/couchbase-associate-architect-badge.png" loading="lazy" alt="Couchbase Certified Associate Architect with Capella" class="badge-image" />
+                            </a>
+                        </div>
+                        <div class="badge-title">Couchbase Certified Associate Architect with Capella</div>
+                        <div class="badge-subtitle"><a href="https://www.credly.com/badges/2b04d1fc-cacf-4cda-90e9-fde5912e17e2/linked_in_profile" target="_blank">View Badge</a></div>
+                    </div>
+                    <!-- Microsoft Learn Credential 1: Azure AI Fundamentals -->
+                    <div class="badge-item">
+                        <div class="badge-image-container">
+                            <a href="https://learn.microsoft.com/en-gb/users/miguelfrana-7004/credentials/754c4e68be7f4919" target="_blank">
+                                <img src="img/microsoft-azure-ai-fundamentals-badge.png" loading="lazy" alt="Microsoft Certified: Azure AI Fundamentals" class="badge-image" style="object-fit: contain; background: white; padding: 10px;" />
+                            </a>
+                        </div>
+                        <div class="badge-title">Microsoft Certified: Azure AI Fundamentals</div>
+                        <div class="badge-subtitle"><a href="https://learn.microsoft.com/en-gb/users/miguelfrana-7004/credentials/754c4e68be7f4919" target="_blank">View Credential</a></div>
+                    </div>
+                    <!-- Microsoft Learn Credential 2: Azure Data Fundamentals -->
+                    <div class="badge-item">
+                        <div class="badge-image-container">
+                            <a href="https://learn.microsoft.com/en-gb/users/miguelfrana-7004/credentials/986c297d4d3cdc6d" target="_blank">
+                                <img src="img/microsoft-azure-data-fundamentals-badge.png" loading="lazy" alt="Microsoft Certified: Azure Data Fundamentals" class="badge-image" style="object-fit: contain; background: white; padding: 10px;" />
+                            </a>
+                        </div>
+                        <div class="badge-title">Microsoft Certified: Azure Data Fundamentals</div>
+                        <div class="badge-subtitle"><a href="https://learn.microsoft.com/en-gb/users/miguelfrana-7004/credentials/986c297d4d3cdc6d" target="_blank">View Credential</a></div>
+                    </div>
+                    <!-- Google Cloud Certifications (moved to end) -->
+                    <div class="badge-item">
+                        <div class="badge-image-container">
+                            <a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1682353" target="_blank">
+                                <img src="img/google-cloud-fundamentals-core-infrastructure-badge.png" loading="lazy" alt="Google Cloud Fundamentals: Core Infrastructure" class="badge-image" />
+                            </a>
+                        </div>
+                        <div class="badge-title">Google Cloud Fundamentals: Core Infrastructure</div>
+                        <div class="badge-subtitle"><a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1682353" target="_blank">Earned Jan 25, 2022</a></div>
+                    </div>
+                    <div class="badge-item">
+                        <div class="badge-image-container">
+                            <a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1695983" target="_blank">
+                                <img src="img/google-cloud-big-data-ml-fundamentals-badge.png" loading="lazy" alt="Google Cloud Big Data and Machine Learning Fundamentals" class="badge-image" />
+                            </a>
+                        </div>
+                        <div class="badge-title">Google Cloud Big Data and Machine Learning Fundamentals</div>
+                        <div class="badge-subtitle"><a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1695983" target="_blank">Earned Jan 29, 2022</a></div>
+                    </div>
+                    <div class="badge-item">
+                        <div class="badge-image-container">
+                            <a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1702251" target="_blank">
+                                <img src="img/google-cloud-foundational-data-ml-ai-badge.png" loading="lazy" alt="Perform Foundational Data, ML, and AI Tasks in Google Cloud" class="badge-image" />
+                            </a>
+                        </div>
+                        <div class="badge-title">Perform Foundational Data, ML, and AI Tasks in Google Cloud</div>
+                        <div class="badge-subtitle"><a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1702251" target="_blank">Earned Feb 1, 2022</a></div>
+                    </div>
+                    <div class="badge-item">
+                        <div class="badge-image-container">
+                            <a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1654398" target="_blank">
+                                <img src="img/google-cloud-create-manage-resources-badge.png" loading="lazy" alt="Create and Manage Cloud Resources" class="badge-image" />
+                            </a>
+                        </div>
+                        <div class="badge-title">Create and Manage Cloud Resources</div>
+                        <div class="badge-subtitle"><a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1654398" target="_blank">Earned Jan 17, 2022</a></div>
+                    </div>
+                    <div class="badge-item">
+                        <div class="badge-image-container">
+                            <a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1690573" target="_blank">
+                                <img src="img/google-cloud-foundational-infrastructure-badge.png" loading="lazy" alt="Perform Foundational Infrastructure Tasks in Google Cloud" class="badge-image" />
+                            </a>
+                        </div>
+                        <div class="badge-title">Perform Foundational Infrastructure Tasks in Google Cloud</div>
+                        <div class="badge-subtitle"><a href="https://www.cloudskillsboost.google/public_profiles/d21a9074-a09c-4ebe-80f5-a090476b1c6f/badges/1690573" target="_blank">Earned Jan 27, 2022</a></div>
+                    </div>
+                    <!-- Credly Badge 4: Cloud Digital Leader -->
+                    <div class="badge-item">
+                        <div class="badge-image-container">
+                            <a href="https://www.credly.com/badges/d2e2be30-dd9b-4cb2-988d-1dcb1b430157/public_url" target="_blank">
+                                <img src="img/google-cloud-digital-leader-badge.png" loading="lazy" alt="Cloud Digital Leader Certification" class="badge-image" />
+                            </a>
+                        </div>
+                        <div class="badge-title">Cloud Digital Leader Certification</div>
+                        <div class="badge-subtitle"><a href="https://www.credly.com/badges/d2e2be30-dd9b-4cb2-988d-1dcb1b430157/public_url" target="_blank">View Badge</a></div>
+                    </div>
                 </div>
             </div>
         </section>
